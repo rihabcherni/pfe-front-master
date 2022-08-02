@@ -47,9 +47,25 @@ export default function DialogCrudUpdate({open,handleClose,data,onChange,handleF
     }
     if(show[i][1]==="type" || show[i][1]==="type_poubelle"){
       rows.push(
-       <> <p>hhhhhhhhhhhhhhh{show[i][1]}</p>
+       <> 
+       <div className="select-menu">
+              <select
+                value={data.type}
+                name="type"
+                id="type"
+                onChange={(e) => onChange(e)}
+              >
+                <option value="0" disabled hidden>
+                  Select type
+                </option>
+                <option value="plastique">plastique</option>
+                <option value="canette">canette</option>
+                <option value="composte">composte</option>
+              </select>
+            </div>
+       {/* <p>hhhhhhhhhhhhhhh{show[i][1]}</p>
        <TextField id={show[i][1]} value={data[show[i][1]]} onChange={e=>onChange(e)} placeholder={show[i][1]}  
-          error={!!validation[show[i][1]]} label={show[i][1]} variant="outlined" margin="dense" fullWidth />
+          error={!!validation[show[i][1]]} label={show[i][1]} variant="outlined" margin="dense" fullWidth /> */}
        </>
       );
     }
@@ -86,6 +102,7 @@ export default function DialogCrudUpdate({open,handleClose,data,onChange,handleF
           <form encType="multipart/form-data"  style={{columnWidth: "200px"}}>       
               
               {rows}   
+              
           </form>
         </DialogContent>
         <DialogActions sx={{backgroundColor: 'white'}}>

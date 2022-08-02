@@ -7,21 +7,21 @@ export default function CardGlobalDechet({color,color3, type,quantite_dechets ,n
   pourcentage_qt_poubelle, image, somme_qt_dechet}) {
   const BoxCard = styled(Box)(({ theme }) => ({backgroundColor: theme.palette.mode === 'dark' ? color3:  color, borderRadius:"10px", textAlign:"center", padding:"7px", color:'white',margin:"3px 0px",}));
   return (
-    <div className="card-globale-stat" style={{borderLeft:`8px solid ${color}`}}>
-        <div style={{padding:"5px"}}>
+    <div className="card-globale-stat" style={{borderLeft:`10px solid ${color}`}}>
+        <div>
             <Typography variant='h5' sx={{textAlign:'center', color:{color}, fontFamily:"Fredoka"}}>{type}</Typography>
             <div className='globale-stat-container3'>
                 <BoxCard > 
                     <Typography variant='h6' >{nbr_poubelle}</Typography>  
-                    <Typography variant='body2'sx={{fontSize:"12px"}}>Nombre poubelles</Typography>
+                    <Typography variant='body2'>Nombre poubelles</Typography>
                 </BoxCard>  
                 <BoxCard>
                     <Typography variant='h6'>{quantite_dechets}KG</Typography>  
-                    <Typography variant='body2' sx={{fontSize:"12px"}}>Quantité totale collecté</Typography>
+                    <Typography variant='body2'>Quantité totale collecté</Typography>
                 </BoxCard>
                 <BoxCard>
                     <Typography variant='h6' >{somme_qt_dechet}KG</Typography>  
-                    <Typography variant='body2' sx={{fontSize:"12px"}}>Quantité totale actuelle</Typography>
+                    <Typography variant='body2'>Quantité totale actuelle</Typography>
                 </BoxCard>
             </div>
             <BoxCard className='container_taux'>

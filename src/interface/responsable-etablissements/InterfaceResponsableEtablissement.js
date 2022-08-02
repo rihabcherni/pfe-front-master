@@ -15,20 +15,8 @@ import Time from "../../Global/Time";
 
 const theme = experimental_extendTheme({
   colorSchemes: {
-    light: {
-      palette: { 
-        primary: {main: '#388e3c',},
-        secondary: {  main: '#a5d6a7',  },
-        text: {  primary: green[900],  secondary:  green[600],},
-      },
-    },
-    dark: {
-      palette: {
-        primary: { main: '#212121',  },
-        secondary: { main: '#fff', },
-        text: {  primary: '#fff',   secondary: green[600],   },
-      },
-    },
+    light:{ palette:{ primary:{main:'#388e3c'}, secondary:{main: '#a5d6a7'}, text: { primary: green[900], secondary: green[600]}}},
+    dark: {palette: {primary: { main:'#212121' }, secondary: { main: '#fff'}, text: {  primary: '#fff',   secondary: green[600]}}},
   },
 });
 

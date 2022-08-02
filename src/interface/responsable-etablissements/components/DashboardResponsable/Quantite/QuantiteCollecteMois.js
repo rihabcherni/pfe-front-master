@@ -1,25 +1,36 @@
 import React, { useState, useEffect } from 'react'
 import Select from 'react-select'
-import { Card, Container, Typography, Grid } from '@mui/material';
+import { Card, Container } from '@mui/material';
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, PointElement, LineElement, Title, Tooltip, Filler, Legend,} from 'chart.js';
 import { Bar, Line } from 'react-chartjs-2';
-import {StyledTypography } from '../../../../../style'
+import { StyledTypography} from '../../../../../style'
+import { Paper} from '@mui/material'
+import { styled } from '@mui/material/styles';
+export const Item = styled(Paper)(({ theme }) => 
+  (
+    {
+      backgroundColor: theme.palette.mode === 'dark' ?'#2c2c2c' : '#fff',
+      border:' 2px solid #f0f0f0',
+      ...theme.typography.body2,
+      padding: "10px 20px",
+      color: theme.palette.text.secondary,
+    }
+  )
+);
 ChartJS.register(CategoryScale, LinearScale, BarElement, PointElement, LineElement, Filler, Title, Tooltip, Legend);
 
-const BarChartSituation = () => {
+const QuantiteCollecteMois = () => {
     var myHeaders = new Headers();
     myHeaders.append("Authorization", `Bearer ${localStorage.getItem('auth_token')}`);
-    
     var requestOptions = { method: 'GET', headers: myHeaders,redirect: 'follow'};
-    const [quantitemois, setQuantiteMois] = useState([])
-
+    const [quantitemois, setQuantiteMois] =useState([])
     useEffect(() => {
-        ;(async function getStatus() {
-        const response = await fetch('http://127.0.0.1:8000/api/revenu-responsable-mois',requestOptions)
+      ;(async function getStatus() {
+        const response = await fetch('http://127.0.0.1:8000/api/resp-quantite-collecte-mois',requestOptions)
         const json = await response.json()
         setQuantiteMois(json)
         setTimeout(getStatus, 60000)
-        })()
+      })()
     }, [])
     var options = []
     const [annee, setAnnee] = useState()
@@ -63,11 +74,11 @@ const BarChartSituation = () => {
         }
     } 
     return (
-     <div>
+     <Item>
       <Card >
         <Container>
-          <StyledTypography style={{margin:"10px 0"}}>Votre part des revenus des déchets collectés à votre établissement par mois en Dinars</StyledTypography>
-          <div style={{width:"20%"}} >
+          <StyledTypography style={{margin:"10px 0"}}>Quantité des déchets collectés à votre établissement par mois en KG en {annee} </StyledTypography>
+          <div style={{width:"25%"}} >
             <Select   onChange={onchangeSelect} value={annee} options={options} getOptionValue={(option) => option.value} getOptionLabel={(option) => option.value} placeholder={annee}/>
           </div>
         </Container>
@@ -81,7 +92,7 @@ const BarChartSituation = () => {
                 ],
             }}/>
        </Card>
-     </div>
+     </Item>
     );
 }
-export default BarChartSituation;
+export default QuantiteCollecteMois;

@@ -3,20 +3,8 @@ import ReactApexChart from "react-apexcharts";
 import {TailSpin} from 'react-loader-spinner'
 import Select from 'react-select'
 import { StyledTypography } from "../../../../../style";
-import { Paper} from '@mui/material'
-import { styled } from '@mui/material/styles';
-export const Item = styled(Paper)(({ theme }) => 
-  (
-    {
-      backgroundColor: theme.palette.mode === 'dark' ?'#2c2c2c' : '#fff',
-      border:' 2px solid #f0f0f0',
-      ...theme.typography.body2,
-      padding: "10px 20px",
-      color: theme.palette.text.secondary,
-    }
-  )
-);
-export default function QuantiteCollecteAnneefilter () {
+
+export default function SitutationFinancierAnneeFilter () {
     var myHeaders = new Headers();
     myHeaders.append("Authorization",  `Bearer ${localStorage.getItem('auth_token')}`);   
     var requestOptions = { method: 'GET', headers: myHeaders, redirect: 'follow'};   
@@ -31,13 +19,7 @@ export default function QuantiteCollecteAnneefilter () {
           tooltip: {  style: { fontSize: '14px', fontWeight:900 }}, 
           labels: ['plastique','composte', 'papier', 'canette'],
           responsive: [ { breakpoint: 480 }],
-          dataLabels: {
-            enabled: true, 
-            style: {
-                colors: ['#fff'],
-                fontWeight: 'bold', fontSize:"12px"
-            },
-          },
+          dataLabels: { enabled: true, style: { colors: ['#fff'], fontWeight: 'bold', fontSize:"12px" }},
           plotOptions: {
             pie: {
               customScale: 1,
@@ -54,7 +36,7 @@ export default function QuantiteCollecteAnneefilter () {
         }
       });
     }
-    const getData = () => {fetch("http://127.0.0.1:8000/api/quantite-responsable-annee", requestOptions)
+    const getData = () => {fetch("http://127.0.0.1:8000/api/revenu-responsable-annee", requestOptions)
       .then(response => response.json()).then(result => setTableData(result)).catch(error => console.log('error', error));
     }  
     useEffect(() => { getData()
@@ -98,30 +80,20 @@ export default function QuantiteCollecteAnneefilter () {
                 }
            }
        }
-
-       console.log(dataplastique)
     if(tableData!==null){
       return (
-        <Item>
-            <div style={{display:"grid", gridTemplateColumns:"100%"}}>
-                <br/>
-                <StyledTypography>Revenus totales collectés par type de déchet en {annee} </StyledTypography>
-                <br/>
-                <div style={{width:"25%"}}>
-                    <Select onChange={onchangeSelect} value={annee} options={options} 
-                        getOptionValue={(option) => option.value} getOptionLabel={(option) => option.value} placeholder={annee} />
-                </div>
-                <br/>
-                <>
-                    <ReactApexChart  options={chart.options} type="donut" series={[dataplastique, datacomposte, datapapier, datacanette]}/>          
-                </>
-            </div>
-        </Item>
+        <div style={{display:"grid", gridTemplateColumns:"100%", padding:"20px"}}>
+          <StyledTypography style={{margin:'10px 0'}}> Votre part des revenus des déchets collectés à votre établissement en Dinars en {annee} </StyledTypography>
+          <div style={{width:"25%"}}>
+            <Select onChange={onchangeSelect} value={annee} options={options} getOptionValue={(option) => option.value} getOptionLabel={(option) => option.value} placeholder={annee} />
+          </div>
+          <ReactApexChart options={chart.options} type="donut" series={[dataplastique, datacomposte, datapapier, datacanette]}/>          
+        </div>
       );
     }else{
       return (
-        <div className='container-prix' style={{margin:"10% 30% 5%", verticalAlign:"center"}}>
-           <TailSpin height="150" width="150" color='green' ariaLabel='loading' />
+        <div style={{ margin:"10% 35% 5%", verticalAlign:"center"}}>
+          <TailSpin height="400" width="400" color='green' ariaLabel='loading' />
         </div>
       );
     };

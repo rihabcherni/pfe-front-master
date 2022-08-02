@@ -3,9 +3,10 @@ import {Typography , Paper} from '@mui/material'
 import { styled } from '@mui/material/styles';
 import D1GlobalStatistiques from '../components/DashboardResponsable/D1GlobalStatistiques';
 import TablePoubellePlusRemplis from '../components/DashboardResponsable/TablePoubellePlusRemplis';
-import SituationFinanciere from '../components/DashboardResponsable/SituationFiancierQuantite/SituationFinanciere';
-import QuantiteCollecteMois from '../components/DashboardResponsable/SituationFiancierQuantite/QuantiteCollecteMois';
-import QuantiteCollecteAnneefilter from '../components/DashboardResponsable/SituationFiancierQuantite/QuantiteCollecteAnneefilter';
+import SituationFinanciere from '../components/DashboardResponsable/SituationFiancier/SituationFinanciere';
+import QuantiteCollecteMois from '../components/DashboardResponsable/Quantite/QuantiteCollecteMois';
+import QuantiteCollecteAnneefilter from '../components/DashboardResponsable/Quantite/QuantiteCollecteAnneefilter';
+import Quantite from '../components/DashboardResponsable/Quantite/Quantite';
 
 export const Item = styled(Paper)(({ theme }) =>  ({
   backgroundColor: theme.palette.mode === 'dark' ?  '#000':'#f0f0f0', border:' 2px solid #f0f0f0', ...theme.typography.body2,
@@ -40,10 +41,8 @@ export default function DashboardResponsable() {
           </Item>
           <Item>
             <Typography variant='h5' sx={{fontWeight:"600", fontFamily:"Fredoka"}}>Quantité déchets collectés à votre établissement</Typography>
-            <div style={{display:"grid" , gridTemplateColumns:"64% 35%", gap:"1%"}}>
-              <QuantiteCollecteMois/>
-              <QuantiteCollecteAnneefilter/>
-            </div>
+            <br/>
+            <Quantite/>
           </Item>
           <Item>
             <Typography variant='h5' sx={{fontWeight:"600", fontFamily:"Fredoka"}}>Poubelles les plus remplises dans mon établissement </Typography>

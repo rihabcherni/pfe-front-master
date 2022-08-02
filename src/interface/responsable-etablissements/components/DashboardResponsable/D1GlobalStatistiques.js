@@ -57,11 +57,8 @@ export default function D1GlobalStatistiques() {
                     pourcentage_qt_poubelle={data[1].pourcentage_qt_poubelle_canette} image={CanetteDechet} somme_qt_dechet={data[1].somme_qt_dechet_canette}            
                 />
               </div>
-
-                <br/>
-                <Typography variant='h5' sx={{fontWeight:"600", fontFamily:"Fredoka", marginBottom:"20px"}}>
-                    Données de mon établissement
-                </Typography>
+           <br/>
+                <Typography variant='h5' sx={{fontWeight:"600", fontFamily:"Fredoka", marginBottom:"20px"}}>Données de mon établissement</Typography>
                 <div className="card-dashboard" >     
                     <div className='container-stat'> 
                         <CardStatistique data={data[0].nbr_personnes} nom='Personnes'

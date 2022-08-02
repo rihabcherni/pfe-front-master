@@ -2,48 +2,30 @@ import React, { useState, useEffect } from "react";
 import ReactApexChart from "react-apexcharts";
 import {TailSpin} from 'react-loader-spinner'
 import Select from 'react-select'
-
-export default function SitutationFinancierAnneeFilter () {
-    var myHeaders = new Headers();
-    myHeaders.append("Authorization",  `Bearer ${localStorage.getItem('auth_token')}`);   
-    var requestOptions = { method: 'GET', headers: myHeaders, redirect: 'follow'};   
-    const [tableData,setTableData] = useState(null)
-    const [chart, setChart] = useState(null)
-    const chartOptions = () => {
-      setChart ({
+import { StyledTypography } from "../../../../../style";
+import { Paper} from '@mui/material'
+import { styled } from '@mui/material/styles';
+export const Item = styled(Paper)(({ theme }) => ({backgroundColor: theme.palette.mode === 'dark' ?'#2c2c2c' : '#fff',
+  border:' 2px solid #f0f0f0', ...theme.typography.body2, padding: "10px 20px", color: theme.palette.text.secondary})
+);
+export default function QuantiteCollecteAnneefilter () {
+  var myHeaders = new Headers();
+  myHeaders.append("Authorization",  `Bearer ${localStorage.getItem('auth_token')}`);   
+  var requestOptions = { method: 'GET', headers: myHeaders, redirect: 'follow'};   
+  const [tableData,setTableData] = useState(null)
+  const [chart, setChart] = useState(null)
+  const chartOptions = () => {
+    setChart ({
         options: {
-          legend: {    
-            position: 'top',fontSize:"14px", fontWeight:700, 
-            labels: { colors: 'green'}},
+          legend: {position: 'top',fontSize:"14px", fontWeight:700, labels: { colors: 'green'}},
           tooltip: {  style: { fontSize: '14px', fontWeight:900 }}, 
           labels: ['plastique','composte', 'papier', 'canette'],
           responsive: [ { breakpoint: 480 }],
-          dataLabels: {
-            enabled: true, 
-            style: {
-                colors: ['#fff'],
-                fontWeight: 'bold', fontSize:"12px"
-            },
-          },
-          plotOptions: {
-            pie: {
-              customScale: 1,
-              donut: {
-                size: '55%',
-                labels: {
-                  show: true,
-                 
-                }
-              }
-            }
-          }
-        
-        }
-      });
+          dataLabels: { enabled: true, style: { colors: ['#fff'], fontWeight: 'bold', fontSize:"12px" }},
+          plotOptions: { pie: { customScale: 1, donut: { size: '55%', labels: { show: true}}}}
+        }});
     }
-    const getData = () => {fetch("http://127.0.0.1:8000/api/revenu-responsable-annee", requestOptions)
-      .then(response => response.json()).then(result => setTableData(result)).catch(error => console.log('error', error));
-    }  
+    const getData = () => {fetch("http://127.0.0.1:8000/api/quantite-responsable-annee", requestOptions).then(response => response.json()).then(result => setTableData(result)).catch(error => console.log('error', error));}  
     useEffect(() => { getData()
        chartOptions() }, [])
        var options = []
@@ -85,17 +67,21 @@ export default function SitutationFinancierAnneeFilter () {
                 }
            }
        }
-
        console.log(dataplastique)
     if(tableData!==null){
       return (
-        <div style={{display:"grid", gridTemplateColumns:"100%"}}>
-            <div style={{width:"25%"}}>
-                <Select   onChange={onchangeSelect} value={annee} options={options} 
+        <Item>
+            <div style={{display:"grid", gridTemplateColumns:"100%"}}>
+                <StyledTypography style={{margin:"10px 0"}}>Quantité des déchets collectés à votre établissement KG en {annee} </StyledTypography>
+                <div style={{width:"35%"}}>
+                  <Select onChange={onchangeSelect} value={annee} options={options} 
                     getOptionValue={(option) => option.value} getOptionLabel={(option) => option.value} placeholder={annee} />
+                </div>
+                <>
+                  <ReactApexChart  options={chart.options} type="donut" series={[dataplastique, datacomposte, datapapier, datacanette]}/>          
+                </>
             </div>
-            <ReactApexChart  options={chart.options} type="donut" series={[dataplastique, datacomposte, datapapier, datacanette]}/>          
-        </div>
+        </Item>
       );
     }else{
       return (
