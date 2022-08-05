@@ -6,7 +6,16 @@ import Api from '../../../../../Global/ComponentsTable/Api';
         ["N° commande","commande_dechet_id"],
         ["Déchet","dechet_id"],
         ["Quantité","quantite"],
-       ];    
+        ["Crée le","created_at"],
+        ["Modifié le","updated_at"],
+       ]; 
+       
+  const createUpdate=[
+        ["ID","id"],
+        ["N° commande","commande_dechet_id"],
+        ["Déchet","dechet_id"],
+        ["Quantité","quantite"],
+       ];   
 export default function DetailCommandeDechetTable() {
     const initialValue = { commande_dechet_id:"", dechet_id:"", quantite:"",created_at:"", updated_at:"",error_list:[]};    
     const url = `http://127.0.0.1:8000/api/detail-commande-dechets` 
@@ -21,7 +30,7 @@ export default function DetailCommandeDechetTable() {
     return (
         <div style={{width:"100%"}}>
               <h2 align="center" style={{color:"green", fontSize:"30px"}}>Détails commandes déchets</h2>
-              <Api url={url} initialValue={initialValue} columnDefs={columnDefs} show={show}/>  
+              <Api url={url} initialValue={initialValue} columnDefs={columnDefs} show={show} createUpdate={createUpdate}/> 
         </div>
     );
   }

@@ -16,6 +16,19 @@ import Api from '../../../../../Global/ComponentsTable/Api';
   ["Modifié le","updated_at"],
  ];
 
+ 
+ const createUpdate=[
+  ["ID","id"],
+  ["Camion","camion_id"],
+  ["Poste","poste"],
+  ["Nom","nom"],
+  ["Prénom","prenom"],
+  ["CIN","CIN"],
+  ["Numéro télèphone","numero_telephone"],
+  ["E-mail","email"],  ["adresse","adresse"],
+  ["Mot de passe","mot_de_passe"]
+ ];
+
 export default function OuvrierTable() {
   const initialValue = { zone_travail_id:"", camion_id:"",photo:"",qrcode:"", qrcode:"", nom:"",prenom:"",CIN:"",numero_telephone:"",email:"",mot_de_passe:"",created_at:"", updated_at:"",error_list:[]};
   const url = `http://127.0.0.1:8000/api/ouvrier`
@@ -36,7 +49,7 @@ export default function OuvrierTable() {
   return (
     <div style={{width:"100%"}}>
         <h2 align="center" style={{color:"green", fontSize:"30px"}}>Ouvrier Reschool Ecology</h2>
-        <Api url={url} initialValue={initialValue} columnDefs={columnDefs} show={show}/>  
+        <Api url={url} initialValue={initialValue} columnDefs={columnDefs} show={show} createUpdate={createUpdate}/> 
     </div>
   );
 }

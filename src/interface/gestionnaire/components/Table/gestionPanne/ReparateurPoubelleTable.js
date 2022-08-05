@@ -7,7 +7,16 @@ import Api from '../../../../../Global/ComponentsTable/Api';
     ["Numéro télèphone","numero_telephone"],
     ["E-mail","email"],["Adresse","adresse"],
     ["Mot de passe", "mot_de_passe"],
+    ["Crée le","created_at"],
+    ["Modifié le","updated_at"],
   ];    
+  const createUpdate=[
+    ["ID","id"],["Nom","nom"],
+    ["Prénom","prenom"],["CIN","CIN"],
+    ["Numéro télèphone","numero_telephone"],
+    ["E-mail","email"],["Adresse","adresse"],
+    ["Mot de passe", "mot_de_passe"],
+  ];
 export default function ReparateurPoubelleTable() {
   const initialValue = {photo:"",nom:"", prenom:"",CIN:"", numero_telephone:"", email:"",adresse:"",mot_de_passe:"",created_at:"", updated_at:"",error_list:[]};    
   const url = `http://127.0.0.1:8000/api/reparateur-poubelle`
@@ -26,7 +35,7 @@ export default function ReparateurPoubelleTable() {
     return (
         <div style={{width:"100%"}}>
               <h2 align="center" style={{color:"green", fontSize:"30px"}}>Réparateurs des poubelles</h2>
-              <Api url={url} initialValue={initialValue} columnDefs={columnDefs} show={show}/>  
+              <Api url={url} initialValue={initialValue} columnDefs={columnDefs} show={show} createUpdate={createUpdate}/>  
         </div>
     );
   }

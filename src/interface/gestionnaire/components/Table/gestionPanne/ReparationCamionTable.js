@@ -9,7 +9,19 @@ import Api from '../../../../../Global/ComponentsTable/Api';
     ["Cout","cout"],
     ["Date debut reparation","date_debut_reparation"],
     ["Date fin reparation","date_fin_reparation"],
+    ["Crée le","created_at"],
+    ["Modifié le","updated_at"],
   ];    
+
+  const createUpdate=[
+    ["ID","id"],
+    ["Camion","camion_id"],
+    ["Mecanicien","mecanicien_id"],
+    ["Description panne","description_panne"],
+    ["Cout","cout"],
+    ["Date debut reparation","date_debut_reparation"],
+    ["Date fin reparation","date_fin_reparation"],
+  ]; 
 export default function ReparationCamionTable() {
   const initialValue = { camion_id:"", id_mecanicien:"", description_panne:"", cout:"",date_debut_reparation:"",date_fin_reparation:"",created_at:"" ,error_list:[]};    
   const url = `http://127.0.0.1:8000/api/reparation-camion`
@@ -35,7 +47,7 @@ export default function ReparationCamionTable() {
     return (
         <div style={{width:"100%"}}>
               <h2 align="center" style={{color:"green", fontSize:"30px"}}>Réparation Camion</h2>
-              <Api url={url} initialValue={initialValue} columnDefs={columnDefs} show={show}/>  
+              <Api url={url} initialValue={initialValue} columnDefs={columnDefs} show={show} createUpdate={createUpdate}/>  
         </div>
     );
   }

@@ -11,6 +11,20 @@ import Api from '../../../../../Global/ComponentsTable/Api';
   ["E-mail","email"],
   ["Mot de passe", "mot_de_passe"],
   ["Adresse","adresse"],
+  ["Crée le","created_at"],
+  ["Modifié le","updated_at"],
+ ];
+
+ const createUpdate=[
+  ["ID","id"],
+  ["Etablissement","etablissement"],
+  ["Nom","nom"],
+  ["Prénom","prenom"],
+  ["Numéro télèphone","numero_telephone"],
+  ["Numéro fixe","numero_fixe"],
+  ["E-mail","email"],
+  ["Mot de passe", "mot_de_passe"],
+  ["Adresse","adresse"],
  ];
 export default function ResponsableTable() {
   const initialValue = { etablissement:"",photo:"",nom: "", prenom: "", numero_telephone: "",numero_fixe:"",mot_de_passe:"", email: "", mot_de_passe:"",adresse:"",created_at:"", updated_at:"", error_list:[]};
@@ -31,7 +45,7 @@ export default function ResponsableTable() {
   return (
     <div style={{width:"100%"}}>
         <h2 align="center" style={{color:"green", fontSize:"30px"}}>Responsables des établissements</h2>
-        <Api url={url} initialValue={initialValue} columnDefs={columnDefs} show={show}/>  
+        <Api url={url} initialValue={initialValue} columnDefs={columnDefs} show={show} createUpdate={createUpdate}/> 
     </div>
   );
 }

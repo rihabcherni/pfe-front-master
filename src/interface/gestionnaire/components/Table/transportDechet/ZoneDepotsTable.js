@@ -11,7 +11,21 @@ import Api from '../../../../../Global/ComponentsTable/Api';
             ["Quantité depot actuelle papier","quantite_depot_actuelle_papier"],
             ["Quantité depot actuelle composte","quantite_depot_actuelle_composte"],
             ["Quantité depot actuelle canette","quantite_depot_actuelle_canette"],
-  ];    
+            ["Crée le","created_at"],
+            ["Modifié le","updated_at"],
+          ];
+  
+  const createUpdate=[
+    ["ID","id"],
+    ["Adresse","adresse"],
+    ["Longitude","longitude"],
+    ["Latitude","latitude"],
+    ["Quantité depot maximale","quantite_depot_maximale"],
+    ["Quantité depot actuelle plastique","quantite_depot_actuelle_plastique"],
+    ["Quantité depot actuelle papier","quantite_depot_actuelle_papier"],
+    ["Quantité depot actuelle composte","quantite_depot_actuelle_composte"],
+    ["Quantité depot actuelle canette","quantite_depot_actuelle_canette"],
+];
 export default function ZoneDepotsTable() {
   const initialValue = { adresse:"" ,longitude:"" ,latitude:"", quantite_depot_maximale:"",quantite_depot_actuelle_plastique:"",
   quantite_depot_actuelle_papier:"",quantite_depot_actuelle_composte:"",quantite_depot_actuelle_canette:"",created_at:"", updated_at:"",error_list:[]};    
@@ -30,7 +44,7 @@ export default function ZoneDepotsTable() {
   return (
     <div style={{width:"100%"}}>
       <h2 align="center" style={{color:"green", fontSize:"30px"}}>Zone Depot</h2>
-      <Api url={url} initialValue={initialValue} columnDefs={columnDefs} show={show}/>  
+      <Api url={url} initialValue={initialValue} columnDefs={columnDefs} show={show} createUpdate={createUpdate}/>   
     </div>
   );
 }

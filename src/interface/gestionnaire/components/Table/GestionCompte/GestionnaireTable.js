@@ -15,6 +15,17 @@ import Api from '../../../../../Global/ComponentsTable/Api';
   ["Modifié le","updated_at"],
  ];
 
+ const createUpdate=[
+  ["ID","id"],
+  ["Nom","nom"],
+  ["Prénom","prenom"],
+  ["CIN","CIN"],
+  ["Numéro télèphone","numero_telephone"],
+  ["E-mail","email"],
+  ["Mot de passe","mot_de_passe"],
+  ["Adresse","adresse"],
+ ];
+
 export default function GestionnaireTable() {
   const initialValue = { photo:"",nom: "", prenom: "",CIN:"", numero_telephone: "", email: "", adresse:"",created_at:"", updated_at:"", error_list:[]};
   const url = `http://127.0.0.1:8000/api/gestionnaire`
@@ -34,7 +45,7 @@ export default function GestionnaireTable() {
   return (
     <>
         <h2 align="center" style={{color:"green", fontSize:"30px"}}>Gestionnaire Reschool Ecology</h2>
-        <Api url={url} initialValue={initialValue} columnDefs={columnDefs} show={show}/>  
+        <Api url={url} initialValue={initialValue} columnDefs={columnDefs} show={show} createUpdate={createUpdate}/> 
     </>
   );
 }

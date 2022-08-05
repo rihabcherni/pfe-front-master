@@ -10,7 +10,20 @@ import Api from '../../../../../Global/ComponentsTable/Api';
             ["Quantité deposé papier","quantite_depose_papier"],
             ["Quantité deposé canette","quantite_depose_canette"],
             ["Quantité deposé composte","quantite_depose_composte"],
-           ];    
+            ["Crée le","created_at"],
+            ["Modifié le","updated_at"],
+           ];  
+           
+  const createUpdate=[
+            ["ID","id"],
+            ["Zone depot","zone_depot_id"],
+            ["Camion","camion_id"],
+            ["Date depot","date_depot"],
+            ["Quantité deposé plastique","quantite_depose_plastique"],
+            ["Quantité deposé papier","quantite_depose_papier"],
+            ["Quantité deposé canette","quantite_depose_canette"],
+            ["Quantité deposé composte","quantite_depose_composte"],
+           ];  
 export default function DepotTable() {
   const initialValue = { zone_depot_id:"", camion_id:"", date_depot:"", quantite_depose_plastique:"", quantite_depose_papier:"", quantite_depose_canette:"", quantite_depose_composte:"",created_at:"", updated_at:"",error_list:[]};    
   const url = `http://127.0.0.1:8000/api/depot`
@@ -35,7 +48,7 @@ export default function DepotTable() {
   return (
     <div style={{width:"100%"}}>
       <h2 align="center" style={{marginTop:'-12px',color:"green", fontSize:"30px"}}>Depot</h2>
-      <Api url={url} initialValue={initialValue} columnDefs={columnDefs} show={show}/>  
+      <Api url={url} initialValue={initialValue} columnDefs={columnDefs} show={show} createUpdate={createUpdate}/>  
     </div>
   );
 }

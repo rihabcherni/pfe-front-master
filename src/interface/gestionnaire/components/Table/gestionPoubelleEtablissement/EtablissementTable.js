@@ -16,7 +16,26 @@ import Api from '../../../../../Global/ComponentsTable/Api';
     ['Quantité déchets papier','quantite_dechets_papier'],
     ['Quantité déchets canette','quantite_dechets_canette'],
     ['URL map','url_map'],
-    ];    
+    ["Crée le","created_at"],
+    ["Modifié le","updated_at"],
+    ];  
+    
+    const createUpdate=[     
+      ["ID","id"],
+      ['Zone travail','zone_travail_id'],
+      ['Camion','camion_id'],
+      ['Etablissement','nom_etablissement'],
+      ['Type','type_etablissement'],
+      ['Nombre personnes','nbr_personnes'],
+      ['Adresse','adresse'],
+      ['Longitude','longitude'],
+      ['Latitude','latitude'],
+      ['Quantité déchets plastique','quantite_dechets_plastique'],
+      ['Quantité déchets composte','quantite_dechets_composte'],
+      ['Quantité déchets papier','quantite_dechets_papier'],
+      ['Quantité déchets canette','quantite_dechets_canette'],
+      ['URL map','url_map'],
+      ];  
 export default function EtablissementTable() {
   const initialValue = { zone_travail_id:"",nom_etablissement:"", nbr_personnes:"",adresse:"",longitude:"",latitude:""
  ,quantite_dechets_plastique:"",quantite_dechets_composte:"",quantite_dechets_papier:"",quantite_dechets_canette:"",created_at:"", updated_at:"",error_list:[]};    
@@ -37,7 +56,7 @@ export default function EtablissementTable() {
   return (
     <div style={{width:"100%"}}>
       <h2 align="center" style={{color:"green", fontSize:"30px"}}>Etablissement</h2>
-      <Api url={url} initialValue={initialValue} columnDefs={columnDefs} show={show}/>  
+      <Api url={url} initialValue={initialValue} columnDefs={columnDefs} show={show} createUpdate={createUpdate}/> 
     </div>
   );
 }

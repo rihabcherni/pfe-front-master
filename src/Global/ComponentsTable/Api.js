@@ -11,7 +11,7 @@ import DialogAddUpdate from './DialogAddUpdate';
 import DialogShow from './DialogShow';
 import Swal from 'sweetalert';
 
-export default function Api({initialValue, url, columnDefs, show}) {
+export default function Api({initialValue, url, columnDefs, show, createUpdate}) {
   const [tableData, setTableData] = useState(null)
   const [open, setOpen] =useState(false);
   const [openShow, setOpenShow] =useState(false);
@@ -50,12 +50,10 @@ export default function Api({initialValue, url, columnDefs, show}) {
   const getData = () => {
     if(localStorage.getItem('auth_token')){
       fetch(url, requestOptions).then(resp => resp.json()).then(resp => {setTableData(resp.data);}).catch(err => {
-        // Do something for an error here
         console.log("Error Reading data " + err);
       });
     }else{
       fetch(url).then(resp => resp.json()).then(resp => {setTableData(resp.data);}).catch(err => {
-        // Do something for an error here
         console.log("Error Reading data " + err);
       });
     }
@@ -191,7 +189,7 @@ export default function Api({initialValue, url, columnDefs, show}) {
   return (
     <div style={{width:"100%"}}>
         <Table handleClickOpen={handleClickOpen} columnDefs={tableColumn} tableData={tableData}/>
-        <DialogAddUpdate open={open} handleClose={handleClose} show={show}
+        <DialogAddUpdate open={open} handleClose={handleClose} createUpdate={createUpdate}
           data={formData} onChange={onChange} handleFormSubmit={handleFormSubmit}  validation={validation} />
        
         <DialogShow open={openShow} handleClose={handleCloseShow}  show={show}

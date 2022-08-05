@@ -8,6 +8,16 @@ import Api from '../../../../../Global/ComponentsTable/Api';
             ["Prix unitaire (DT)","prix_unitaire"],   
             ["Quantité","quantite"],   
             ["Prix totale (DT)","prix_total"],
+            ["Crée le","created_at"],
+            ["Modifié le","updated_at"],
+           ]; 
+  const createUpdate=[
+            ["ID","id"],
+            ["Fournisseur","fournisseur_id"],
+            ["Nom materiel","nom_materiel"],   
+            ["Prix unitaire (DT)","prix_unitaire"],   
+            ["Quantité","quantite"],   
+            ["Prix totale (DT)","prix_total"],
            ];    
 export default function MateriauxPrimairesTable() {
   const initialValue = { id_fournisseur: "", nom_materiel: "",prix_unitaire: "", quantite: "",prix_total:"",error_list:[]};    
@@ -27,7 +37,7 @@ export default function MateriauxPrimairesTable() {
   return (
     <div style={{width:"100%"}}>
       <h2 align="center" style={{color:"green", fontSize:"30px"}}>  Materiaux Primaires</h2>
-      <Api url={url} initialValue={initialValue} columnDefs={columnDefs} show={show}/>  
+      <Api url={url} initialValue={initialValue} columnDefs={columnDefs} show={show} createUpdate={createUpdate}/>  
     </div>
   );
 }

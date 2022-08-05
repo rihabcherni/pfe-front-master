@@ -114,7 +114,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
     return (
       <React.Fragment>
         <ListItem button onClick={handleClick}  sx={{ maxHeight:35 }}>
-          <Tooltip title={item.name} placement="right" arrow>
+          <Tooltip title={item.name} placement="right" arrow >
               <ListItemIcon sx={{marginLeft:-1.3}}> <IconButton color="secondary" size="medium" >{item.icon}</IconButton></ListItemIcon>
           </Tooltip>
           <ListItemText component="div" color="secondary" sx={{ opacity: open ? 1 : 0, textDecoration:"none",margin:"0 0 0 -1.3px"}} primary= {item.name}  primaryTypographyProps={{color: 'secondary', fontSize: '14px', variant: 'body2', }}/>

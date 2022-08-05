@@ -4,7 +4,14 @@ import Api from '../../../../../Global/ComponentsTable/Api';
   const show=[
      ["ID","id"],
      ["etage_etablissement_id","etage_etablissement_id"],
+     ["Crée le","created_at"],
+     ["Modifié le","updated_at"],
   ];    
+
+  const createUpdate=[
+    ["ID","id"],
+    ["etage_etablissement_id","etage_etablissement_id"],
+ ]; 
 export default function BlocPoubelleTable() {
   const initialValue = {id:"", etage_etablissement_id: "",error_list:[]};    
   const url = `http://127.0.0.1:8000/api/bloc-poubelle`
@@ -17,7 +24,7 @@ export default function BlocPoubelleTable() {
   return (
     <div style={{width:"100%"}}>
       <h2 align="center" style={{color:"green", fontSize:"30px"}}>Bloc Poubelle</h2>
-      <Api url={url} initialValue={initialValue} columnDefs={columnDefs} show={show}/>  
+      <Api url={url} initialValue={initialValue} columnDefs={columnDefs} show={show}  createUpdate={createUpdate}/>  
     </div>
   );
 } 

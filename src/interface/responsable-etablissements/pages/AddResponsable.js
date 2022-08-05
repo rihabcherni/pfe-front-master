@@ -13,7 +13,7 @@ import Api from '../../../Global/ComponentsTable/Api';
  ];
 export default function AddResponsable() {
   const initialValue = {photo:"",nom: "", prenom: "", numero_telephone: "",numero_fixe:"",mot_de_passe:"", email: "", mot_de_passe:"",adresse:"",created_at:"", updated_at:"", error_list:[]};
-  const url = `http://127.0.0.1:8000/api/add-resp-etablissement`
+  const url = `http://127.0.0.1:8000/api/auth-responsable-etablissement/add-resp-etablissement`
   const columnDefs = [
     { headerName: "ID", field: "id", maxWidth:80, minWidth:50, pinned: 'left' },
     { headerName: "Photo", field: "photo", maxWidth:100, minWidth:100, cellRenderer: (params) =>

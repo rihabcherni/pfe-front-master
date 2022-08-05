@@ -17,7 +17,27 @@ const show=[
   ["Heure de sortie","heure_sortie"],
   ["Heure d'entrée","heure_entree"],
   ["Kilometrage","Kilometrage"],
-];    
+  ["Crée le","created_at"],
+  ["Modifié le","updated_at"],
+];
+
+const createUpdate=[
+  ["ID","id"],
+  ["Zone travail","zone_travail_id"],
+  ["Zone depot","zone_depot_id"],
+  ["Matricule","matricule"],
+  ["Volume maximale camion","volume_maximale_camion"],
+  ["Volume actuelle plastique","volume_actuelle_plastique"],
+  ["Volume actuelle papier","volume_actuelle_papier"],
+  ["Volume actuelle composte","volume_actuelle_composte"],
+  ["Volume actuelle canette","volume_actuelle_canette"],
+  ["Volume carburant consomme","volume_carburant_consomme"],
+  ["Longitude","longitude"],
+  ["Latitude","latitude"],
+  ["Heure de sortie","heure_sortie"],
+  ["Heure d'entrée","heure_entree"],
+  ["Kilometrage","Kilometrage"],
+]; 
 export default function CamionsTable() {
   const initialValue = { zone_travail_id:"",zone_depot_id:"", matricule:"", volume_maximale_camion:"",longitude:"", latitude:"",heure_sortie:"",heure_entree:"",volume_maximale_poubelle:"",
   volume_actuelle_plastique:"",volume_actuelle_papier:"",volume_actuelle_composte:"",volume_actuelle_canette:"",volume_carburant_consomme:"",Kilometrage:"",created_at:"", updated_at:"",error_list:[]};    
@@ -52,7 +72,7 @@ export default function CamionsTable() {
   return (
     <div style={{width:"100%"}}>
       <h2 align="center" style={{color:"green", fontSize:"30px"}}>Camions</h2>
-      <Api url={url} initialValue={initialValue} columnDefs={columnDefs} show={show}/>  
+      <Api url={url} initialValue={initialValue} columnDefs={columnDefs} show={show} createUpdate={createUpdate}/> 
     </div>
   );
 }

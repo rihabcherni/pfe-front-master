@@ -13,6 +13,15 @@ import Api from '../../../../../Global/ComponentsTable/Api';
   ["Modifié le","updated_at"],
  ];
 
+ const createUpdate=[
+  ["ID","id"],
+  ["Client dechet","client_dechet_id"],
+  ["Type paiment","type_paiment"],
+  ["Montant total","montant_total"],
+  ["Date commande","date_commande"],
+  ["Date livraison","date_livraison"]
+ ];
+
  export default function CommandeDechetTable() {
   const initialValue = { client_dechet_id:"", type_paiment:"", montant_total:"", date_commande:"", date_livraison:"",created_at:"", updated_at:"", error_list:[]};
 
@@ -30,7 +39,7 @@ import Api from '../../../../../Global/ComponentsTable/Api';
   return (
     <div style={{width:"100%"}}>
         <h2 align="center" style={{color:"green", fontSize:"30px"}}>Commandes de déchets</h2>
-        <Api url={url} initialValue={initialValue} columnDefs={columnDefs} show={show}/>  
+        <Api url={url} initialValue={initialValue} columnDefs={columnDefs} show={show}  createUpdate={createUpdate}/>  
     </div>
   );
 }

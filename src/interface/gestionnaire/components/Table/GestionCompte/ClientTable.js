@@ -2,6 +2,19 @@ import React from 'react';
 import '../../../../../App.css'
 import Api from '../../../../../Global/ComponentsTable/Api';
 
+ const createUpdate=[
+  ["ID","id"],
+  ["Nom entreprise","nom_entreprise"],
+  ["Nom","nom"],
+  ["Prénom","prenom"],
+  ["Matricule fiscale","matricule_fiscale"],
+  ["Numéro télèphone","numero_telephone"],
+  ["Numéro fixe","numero_fixe"],
+  ["E-mail","email"],
+  ["Mot de passe","mot_de_passe"],
+  ["Adresse","adresse"],
+ ];
+
  const show=[
   ["ID","id"],
   ["Nom entreprise","nom_entreprise"],
@@ -16,7 +29,6 @@ import Api from '../../../../../Global/ComponentsTable/Api';
   ["Crée le","created_at"],
   ["Modifié le","updated_at"],
  ];
-
 export default function ClientTable() {
   const initialValue = { nom_entreprise:"", nom: "", prenom: "",matricule_fiscale:"", numero_telephone: "",numero_fixe:"", 
   email: "", mot_de_passe:"", adresse:"",created_at:"", updated_at:"", error_list:[]};
@@ -35,7 +47,7 @@ export default function ClientTable() {
   return (
     <div style={{width:"100%"}}>
         <h2 align="center" style={{color:"green", fontSize:"30px"}}>Client de déchets</h2>
-        <Api url={url} initialValue={initialValue} columnDefs={columnDefs} show={show}/>  
+        <Api url={url} initialValue={initialValue} columnDefs={columnDefs} show={show} createUpdate={createUpdate}/>  
     </div>
   );
 }

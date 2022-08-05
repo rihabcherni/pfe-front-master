@@ -6,8 +6,15 @@ import Api from '../../../../../Global/ComponentsTable/Api';
   ["ID","id"],
   ["Type dechet","type_dechet"],
   ["Prix unitaire (Kg)","prix_unitaire"],
+  ["Crée le","created_at"],
+  ["Modifié le","updated_at"],
  ];
 
+ const createUpdate=[
+  ["ID","id"],
+  ["Type dechet","type_dechet"],
+  ["Prix unitaire (Kg)","prix_unitaire"],
+ ];
  export default function DechetsTable() {
   const initialValue = { type_dechet:"", prix_unitaire:"",error_list:[]};
 
@@ -23,7 +30,7 @@ import Api from '../../../../../Global/ComponentsTable/Api';
   return (
     <div style={{width:"100%"}}>
         <h2 align="center" style={{color:"green", fontSize:"30px"}}>Dechet</h2>
-        <Api url={url} initialValue={initialValue} columnDefs={columnDefs} show={show}/>  
+        <Api url={url} initialValue={initialValue} columnDefs={columnDefs} show={show}  createUpdate={createUpdate}/> 
     </div>
   );
 }

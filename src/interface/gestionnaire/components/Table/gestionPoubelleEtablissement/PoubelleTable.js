@@ -41,15 +41,19 @@ const Progress = ({done}) => {
 		</ProgressStyle>
 	)
 }
-const show=[ ["ID","id"],["Bloc poubelle","bloc_poubelle_id"],
-   ["Nom poubelle","nom"],["Qrcode","qrcode"], ["Type","type"],["Etat de remplissage","Etat"],
-];    
+const createUpdate=[ ["ID","id"],["Etablissement","etablissement_id"],["Bloc établissement","bloc_etablissement_id"],
+ ["Etage","etage_etablissement_id"],["Bloc poubelle","bloc_poubelle_id"],["Type","type"],
+];  
+
+const show=[ ["ID","id"],["Etablissement","etablissement_id"],["Bloc établissement","bloc_etablissement_id"],
+ ["Etage","etage_etablissement_id"],["Bloc poubelle","bloc_poubelle_id"],["Type","type"],
+ ["Crée le","created_at"],["Modifié le","updated_at"],];
 export default function PoubelleTable() {
   const initialValue = { bloc_poubelle_id:"", nom:"",qrcode:"", type:"",Etat:"",created_at:"", updated_at:"",error_list:[]}
   const url = `http://127.0.0.1:8000/api/poubelle`
   const columnDefs = [
     { headerName: "ID", field: "id", maxWidth:90, minWidth:60, pinned: 'left'},
-    { headerName: "Nom", field: "nom" , maxWidth:150, minWidth:130},
+    { headerName: "Nom", field: "nom" , maxWidth:200, minWidth:170},
     { headerName: "Bloc poubelle", field: "bloc_poubelle_id" , maxWidth:150, minWidth:130},
     { headerName: "Type", field: "type", maxWidth:150, minWidth:130 },
     { headerName: "Etat de remplissage", field: "Etat", maxWidth:200, minWidth:150, cellRenderer: (params) =>
@@ -59,7 +63,7 @@ export default function PoubelleTable() {
   return (
     <div style={{width:"100%"}}>
       <h2 align="center" style={{color:"green", fontSize:"30px"}}>Poubelle</h2>
-      <Api url={url} initialValue={initialValue} columnDefs={columnDefs} show={show}/>  
+      <Api url={url} initialValue={initialValue} columnDefs={columnDefs} show={show} createUpdate={createUpdate}/>  
     </div>
   );
 }        

@@ -8,8 +8,19 @@ import Api from '../../../../../Global/ComponentsTable/Api';
             ["CIN","CIN"],
             ["Numéro télèphone","numero_telephone"],
             ["E-mail","email"],
-            ["Adresse","adresse"]
+            ["Adresse","adresse"],    
+            ["Crée le","created_at"],
+            ["Modifié le","updated_at"],
            ];    
+  const createUpdate=[
+            ["ID","id"],
+            ["Nom","nom"],
+            ["Prénom","prenom"],
+            ["CIN","CIN"],
+            ["Numéro télèphone","numero_telephone"],
+            ["E-mail","email"],
+            ["Adresse","adresse"]
+           ];
 export default function FournisseurTable() {
   const initialValue = { nom: "", prenom: "",CIN: "", photo: "",numero_telephone:"",email:"",adresse:"",error_list:[]};    
   const url = `http://127.0.0.1:8000/api/fournisseurs`
@@ -28,7 +39,7 @@ export default function FournisseurTable() {
         return (
             <div style={{width:"100%"}}>
                   <h2 align="center" style={{color:"green", fontSize:"30px"}}>Fournisseur</h2>
-                  <Api url={url} initialValue={initialValue} columnDefs={columnDefs} show={show}/>  
+                  <Api url={url} initialValue={initialValue} columnDefs={columnDefs} show={show} createUpdate={createUpdate}/>   
             </div>
         );
       }
