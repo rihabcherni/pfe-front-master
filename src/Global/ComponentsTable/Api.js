@@ -11,7 +11,7 @@ import DialogAddUpdate from './DialogAddUpdate';
 import DialogShow from './DialogShow';
 import Swal from 'sweetalert';
 
-export default function Api({initialValue, url, columnDefs, show, createUpdate}) {
+export default function Api({tableName,initialValue, url, columnDefs, show, createUpdate}) {
   const [tableData, setTableData] = useState(null)
   const [open, setOpen] =useState(false);
   const [openShow, setOpenShow] =useState(false);
@@ -190,10 +190,10 @@ export default function Api({initialValue, url, columnDefs, show, createUpdate})
     <div style={{width:"100%"}}>
         <Table handleClickOpen={handleClickOpen} columnDefs={tableColumn} tableData={tableData}/>
         <DialogAddUpdate open={open} handleClose={handleClose} createUpdate={createUpdate}
-          data={formData} onChange={onChange} handleFormSubmit={handleFormSubmit}  validation={validation} />
+          data={formData} onChange={onChange} handleFormSubmit={handleFormSubmit}  validation={validation}  tableName={tableName}/>
        
         <DialogShow open={openShow} handleClose={handleCloseShow}  show={show}
-          data={formData} onChange={onChange} handleFormSubmit={handleFormSubmit}/>
+          data={formData} onChange={onChange} handleFormSubmit={handleFormSubmit} tableName={tableName}/>
 
         
     </div>

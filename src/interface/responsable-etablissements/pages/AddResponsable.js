@@ -11,6 +11,17 @@ import Api from '../../../Global/ComponentsTable/Api';
   ["Mot de passe", "mot_de_passe"],
   ["Adresse","adresse"],
  ];
+
+ const createUpdate=[
+  ["ID","id"],
+  ["Nom","nom"],
+  ["Prénom","prenom"],
+  ["Numéro télèphone","numero_telephone"],
+  ["Numéro fixe","numero_fixe"],
+  ["E-mail","email"],
+  ["Mot de passe", "mot_de_passe"],
+  ["Adresse","adresse"],
+ ];
 export default function AddResponsable() {
   const initialValue = {photo:"",nom: "", prenom: "", numero_telephone: "",numero_fixe:"",mot_de_passe:"", email: "", mot_de_passe:"",adresse:"",created_at:"", updated_at:"", error_list:[]};
   const url = `http://127.0.0.1:8000/api/auth-responsable-etablissement/add-resp-etablissement`
@@ -29,7 +40,7 @@ export default function AddResponsable() {
   return (
     <div style={{width:"100%"}}>
         <h2 align="center" style={{color:"green", fontSize:"30px"}}>Responsables des établissements</h2>
-        <Api url={url} initialValue={initialValue} columnDefs={columnDefs} show={show}/>  
+        <Api tableName='Responsable' url={url} initialValue={initialValue} columnDefs={columnDefs} show={show} createUpdate={createUpdate} />  
     </div>
   );
 }

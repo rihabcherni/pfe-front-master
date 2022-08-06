@@ -35,7 +35,7 @@ export default function ReparateurPoubelleTable() {
     return (
         <div style={{width:"100%"}}>
               <h2 align="center" style={{color:"green", fontSize:"30px"}}>Réparateurs des poubelles</h2>
-              <Api url={url} initialValue={initialValue} columnDefs={columnDefs} show={show} createUpdate={createUpdate}/>  
+              <Api tableName='Réparation poubelle' url={url} initialValue={initialValue} columnDefs={columnDefs} show={show} createUpdate={createUpdate}/>  
         </div>
     );
   }

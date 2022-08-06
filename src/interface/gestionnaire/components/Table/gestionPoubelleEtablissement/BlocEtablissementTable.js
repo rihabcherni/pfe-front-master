@@ -24,7 +24,7 @@ export default function BlocEtablissementTable() {
   return (
     <div style={{width:"100%"}}>
       <h2 align="center" style={{color:"green", fontSize:"30px"}}> Bloc Etablissement</h2>
-      <Api url={url} initialValue={initialValue} columnDefs={columnDefs} show={show} createUpdate={createUpdate}/>
+      <Api tableName='Bloc établissement'  url={url} initialValue={initialValue} columnDefs={columnDefs} show={show} createUpdate={createUpdate}/>
     </div>
   );
 }

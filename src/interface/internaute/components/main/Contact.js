@@ -41,7 +41,7 @@ export default function Contact() {
             numero_telephone:contactInput.numero_telephone,
             message:contactInput.message,
         }
-          axios.post(`api/contact-us`,data).then(res =>{
+          axios.post(`api/internaute/contact-us`,data).then(res =>{
             if(res.data.success === true){
                 console.log(res.data.data)
                 Swal("Success", "Votre message a bien été envoyé "+ res.data.data.nom+' '+res.data.data.prenom ,"success")

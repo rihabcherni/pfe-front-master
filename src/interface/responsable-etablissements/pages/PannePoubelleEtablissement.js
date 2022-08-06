@@ -33,7 +33,7 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 }));
 export default function PannePoubelleEtablissement() {
     var myHeaders = new Headers();
-    myHeaders.append("Authorization", "Bearer 3|qRrjW79F37pHr8srU3Vzmn6tz6oKMuxwT1TrQoaH");
+    myHeaders.append("Authorization", `Bearer ${localStorage.getItem('auth_token')}`);
     var requestOptions = {
       method: 'GET',
       headers: myHeaders,
@@ -71,19 +71,17 @@ export default function PannePoubelleEtablissement() {
         <TableBody>
         
         {panne.map((row) => (
-            <StyledTableRow key={row.id}>
-                <StyledTableCell align="center">{row.id}</StyledTableCell>
-
-                <StyledTableCell align="center"><img src={`http://127.0.0.1:8000/storage/images/pannePoubelle/panne1.jfif`} style={{height:"100px", width:"100px"}}/>
-                </StyledTableCell>
-                <StyledTableCell align="center">poubelle {row.poubelle_id}</StyledTableCell>
-                <StyledTableCell align="center">poubelle {row.reparateur_poubelle_id}</StyledTableCell>
-                <StyledTableCell align="center">{row.description_panne}</StyledTableCell>
-                <StyledTableCell>{row.cout}</StyledTableCell>
-                <StyledTableCell>{row.date_debut_reparation}</StyledTableCell>
-                <StyledTableCell>{row.date_fin_reparation}</StyledTableCell>
-
-            </StyledTableRow>
+          <StyledTableRow key={row.id}>
+            <StyledTableCell align="center">{row.id}</StyledTableCell>
+            <StyledTableCell align="center"><img src={`http://127.0.0.1:8000/storage/images/pannePoubelle/${row.image_panne_poubelle}`} style={{height:"100px", width:"100px"}}/>
+            </StyledTableCell>
+            <StyledTableCell align="center">poubelle {row.poubelle_id}</StyledTableCell>
+            <StyledTableCell align="center">poubelle {row.reparateur_poubelle_id}</StyledTableCell>
+            <StyledTableCell align="center">{row.description_panne}</StyledTableCell>
+            <StyledTableCell>{row.cout}</StyledTableCell>
+            <StyledTableCell>{row.date_debut_reparation}</StyledTableCell>
+            <StyledTableCell>{row.date_fin_reparation}</StyledTableCell>
+          </StyledTableRow>
         ))}
             </TableBody>
         </Table>

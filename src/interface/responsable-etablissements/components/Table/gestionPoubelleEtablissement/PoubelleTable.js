@@ -46,7 +46,16 @@ const show=[
   ["qrcode","qrcode"],
   ["type","type"],
   ["Etat","Etat"],
-];    
+]; 
+  
+const createUpdate=[
+  ["ID","id"],
+  ["bloc_poubelle_id","bloc_poubelle_id"],
+  ["nom","nom"],
+  ["qrcode","qrcode"],
+  ["type","type"],
+  ["Etat","Etat"],
+];
 export default function PoubelleTable() {
   const initialValue = { bloc_poubelle_id:"", nom:"",qrcode:"", type:"",Etat:"",created_at:"", updated_at:"",error_list:[]}
   const url = `http://127.0.0.1:8000/api/auth-responsable-etablissement/poubelle-responsable`
@@ -64,7 +73,7 @@ export default function PoubelleTable() {
   return (
     <div style={{width:"100%"}}>
       <h2 align="center" style={{color:"green", fontSize:"30px"}}>Poubelle</h2>
-      <Api url={url} initialValue={initialValue} columnDefs={columnDefs} show={show}/>  
+      <Api tableName='Poubelle' url={url} initialValue={initialValue} columnDefs={columnDefs} show={show} createUpdate={createUpdate} />  
     </div>
   );
 }        

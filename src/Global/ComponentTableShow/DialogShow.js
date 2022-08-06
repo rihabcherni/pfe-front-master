@@ -30,7 +30,7 @@ const BootstrapDialogTitle = (props) => {
   );
 };
 BootstrapDialogTitle.propTypes = { children: PropTypes.node, onClose: PropTypes.func.isRequired,};
-export default function DialogZoneTravailShow({open,handleClose,data, show}) {
+export default function DialogZoneTravailShow({tableName,open,handleClose,data, show}) {
 
   let rows = [];
   for (let i = 0; i < show.length; i++) {
@@ -46,7 +46,7 @@ export default function DialogZoneTravailShow({open,handleClose,data, show}) {
       <BootstrapDialog onClose={handleClose} aria-labelledby="alert-dialog-title" maxWidth='md'
         open={open} aria-describedby="alert-dialog-description" fullWidth> 
         <BootstrapDialogTitle id="alert-dialog-title" onClose={handleClose} sx={{fontWeight: "700",fontSize:"30px", backgroundColor: 'white', textAlign:"center", color:"green"}}>
-          Affichage des données
+          Affichage des données {tableName}
         </BootstrapDialogTitle>
         <DialogContent sx={{backgroundColor: 'white'}}>
           <div>{rows}</div> 

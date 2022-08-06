@@ -8,7 +8,7 @@ import { Table} from './Table'
 import {ButtonTable} from '../../style'
 import DialogShow from './DialogShow';
 
-export default function Api({initialValue, url, columnDefs, show}) {
+export default function Api({tableName,initialValue, url, columnDefs, show}) {
   const [tableData, setTableData] = useState(null)
   const [openShow, setOpenShow] = useState(false);
   const [formData, setFormData] = useState(initialValue)  
@@ -57,7 +57,7 @@ export default function Api({initialValue, url, columnDefs, show}) {
     <div style={{width:"100%"}}>
         <Table columnDefs={tableColumn} tableData={tableData}/>
         <DialogShow open={openShow} handleClose={handleCloseShow}  show={show}
-          data={formData} onChange={onChange}/>
+          data={formData} onChange={onChange} tableName={tableName}/>
     </div>
   );
 }  }

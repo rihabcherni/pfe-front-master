@@ -48,7 +48,7 @@ export default function DepotTable() {
   return (
     <div style={{width:"100%"}}>
       <h2 align="center" style={{marginTop:'-12px',color:"green", fontSize:"30px"}}>Depot</h2>
-      <Api url={url} initialValue={initialValue} columnDefs={columnDefs} show={show} createUpdate={createUpdate}/>  
+      <Api tableName='Depot' url={url} initialValue={initialValue} columnDefs={columnDefs} show={show} createUpdate={createUpdate}/>  
     </div>
   );
 }

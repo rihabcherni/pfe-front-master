@@ -45,9 +45,19 @@ const createUpdate=[ ["ID","id"],["Etablissement","etablissement_id"],["Bloc ét
  ["Etage","etage_etablissement_id"],["Bloc poubelle","bloc_poubelle_id"],["Type","type"],
 ];  
 
-const show=[ ["ID","id"],["Etablissement","etablissement_id"],["Bloc établissement","bloc_etablissement_id"],
- ["Etage","etage_etablissement_id"],["Bloc poubelle","bloc_poubelle_id"],["Type","type"],
- ["Crée le","created_at"],["Modifié le","updated_at"],];
+const show=[ ["ID","id"],
+  ["nom","nom"],
+  ["nom_poubelle_responsable","nom_poubelle_responsable"],
+  ["Etablissement","etablissement"],
+  ["Bloc établissement","bloc_etablissement"],
+  ["Etage","etage"],
+  ["N° bloc poubelle/totale","bloc_poubelle_id"],
+  ["N° bloc poubelle dans l'etablissement", "bloc_poubelle_id_resp"],
+  ["Etat","Etat"],
+  ["quantite","quantite"],
+  ["Crée le","created_at"],
+  ["Modifié le","updated_at"]
+ ];
 export default function PoubelleTable() {
   const initialValue = { bloc_poubelle_id:"", nom:"",qrcode:"", type:"",Etat:"",created_at:"", updated_at:"",error_list:[]}
   const url = `http://127.0.0.1:8000/api/poubelle`
@@ -59,11 +69,10 @@ export default function PoubelleTable() {
     { headerName: "Etat de remplissage", field: "Etat", maxWidth:200, minWidth:150, cellRenderer: (params) =>
     <Progress done={`${params.data.Etat}`} />},
   ]
- 
   return (
     <div style={{width:"100%"}}>
       <h2 align="center" style={{color:"green", fontSize:"30px"}}>Poubelle</h2>
-      <Api url={url} initialValue={initialValue} columnDefs={columnDefs} show={show} createUpdate={createUpdate}/>  
+      <Api tableName='Poubelle' url={url} initialValue={initialValue} columnDefs={columnDefs} show={show} createUpdate={createUpdate}/>  
     </div>
   );
 }        

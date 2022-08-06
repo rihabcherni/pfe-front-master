@@ -7,6 +7,7 @@ import SituationFinanciere from '../components/DashboardResponsable/SituationFia
 import QuantiteCollecteMois from '../components/DashboardResponsable/Quantite/QuantiteCollecteMois';
 import QuantiteCollecteAnneefilter from '../components/DashboardResponsable/Quantite/QuantiteCollecteAnneefilter';
 import Quantite from '../components/DashboardResponsable/Quantite/Quantite';
+import PannePouelleResponsable from '../components/DashboardResponsable/panne/PannePouelleResponsable';
 
 export const Item = styled(Paper)(({ theme }) =>  ({
   backgroundColor: theme.palette.mode === 'dark' ?  '#000':'#f0f0f0', border:' 2px solid #f0f0f0', ...theme.typography.body2,
@@ -48,7 +49,11 @@ export default function DashboardResponsable() {
             <Typography variant='h5' sx={{fontWeight:"600", fontFamily:"Fredoka"}}>Poubelles les plus remplises dans mon établissement </Typography>
             <br/>
             <TablePoubellePlusRemplis/> 
-          </Item>                
+          </Item>  
+          <Item>
+            <Typography variant='h5' sx={{fontWeight:"600", fontFamily:"Fredoka"}}>PannePouelleResponsable</Typography>
+            <PannePouelleResponsable/>
+          </Item>              
       </div>
     </div>
   )

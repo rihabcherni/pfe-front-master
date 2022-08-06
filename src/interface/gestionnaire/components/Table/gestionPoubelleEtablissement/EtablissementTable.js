@@ -56,7 +56,7 @@ export default function EtablissementTable() {
   return (
     <div style={{width:"100%"}}>
       <h2 align="center" style={{color:"green", fontSize:"30px"}}>Etablissement</h2>
-      <Api url={url} initialValue={initialValue} columnDefs={columnDefs} show={show} createUpdate={createUpdate}/> 
+      <Api tableName='établissement'  url={url} initialValue={initialValue} columnDefs={columnDefs} show={show} createUpdate={createUpdate}/> 
     </div>
   );
 }

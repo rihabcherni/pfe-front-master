@@ -35,7 +35,7 @@ const BootstrapDialogTitle = (props) => {
   );
 };
 BootstrapDialogTitle.propTypes = { children: PropTypes.node, onClose: PropTypes.func.isRequired,};
-export default function DialogCrudUpdate({open,handleClose,data,onChange,handleFormSubmit,  validation, createUpdate}) {
+export default function DialogAddUpdate({tableName,open,handleClose,data,onChange,handleFormSubmit,  validation, createUpdate}) {
  const {id}=data ;
  let rows = [];
  var requestOptionsetab = { method: 'GET',redirect: 'follow'};
@@ -158,7 +158,7 @@ export default function DialogCrudUpdate({open,handleClose,data,onChange,handleF
     <div>
       <BootstrapDialog onClose={handleClose} aria-labelledby="alert-dialog-title" open={open} aria-describedby="alert-dialog-description" fullWidth>
         <BootstrapDialogTitle id="alert-dialog-title" onClose={handleClose} sx={{fontWeight: "400",fontSize:"30px", backgroundColor: 'white', textAlign:"center", color:"green"}}>
-          {id?"modifier des données ":"créer un nouveau "}
+          {id?"modifier des données ":"créer un nouveau "} {tableName}
         </BootstrapDialogTitle>
 
         <DialogContent sx={{backgroundColor: 'white', margin:"0 20px" }}>

@@ -25,7 +25,7 @@ export default function EtageEtablissementTable() {
   return (
     <div style={{width:"100%"}}>
       <h2 align="center" style={{color:"green", fontSize:"30px"}}> Etage établissement</h2>
-      <Api url={url} initialValue={initialValue} columnDefs={columnDefs} show={show} createUpdate={createUpdate}/> 
+      <Api tableName='Etage établissement' url={url} initialValue={initialValue} columnDefs={columnDefs} show={show} createUpdate={createUpdate}/> 
     </div>
   );
 }

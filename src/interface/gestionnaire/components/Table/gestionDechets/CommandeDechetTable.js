@@ -39,7 +39,7 @@ import Api from '../../../../../Global/ComponentsTable/Api';
   return (
     <div style={{width:"100%"}}>
         <h2 align="center" style={{color:"green", fontSize:"30px"}}>Commandes de déchets</h2>
-        <Api url={url} initialValue={initialValue} columnDefs={columnDefs} show={show}  createUpdate={createUpdate}/>  
+        <Api tableName='commande dechet' url={url} initialValue={initialValue} columnDefs={columnDefs} show={show}  createUpdate={createUpdate}/>  
     </div>
   );
 }
